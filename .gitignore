@@ -1,0 +1,17 @@
+**/node_modules
+
+# Ignore dist folders in the root and frontend directories
+**/dist
+
+# Ignore IDE/editor configurations
+**/.vscode/*
+!**/.vscode/extensions.json
+**/.idea
+
+# Ignore OS-specific files
+**/.DS_Store
+**/*.suo
+**/*.ntvs*
+**/*.njsproj
+**/*.sln
+**/*.sw?

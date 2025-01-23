@@ -7,13 +7,13 @@ const Message = ({
   isError,
 }: {
   message: string;
-  setMessage: React.Dispatch<React.SetStateAction<string>>; 
+  setMessage: React.Dispatch<React.SetStateAction<string>>;
   isError: boolean;
 }) => {
   useEffect(() => {
     if (message) {
       const timer = setTimeout(() => {
-        setMessage(''); 
+        setMessage('');
       }, 5000);
       return () => clearTimeout(timer);
     }

@@ -22,7 +22,7 @@ function App() {
   const [longitude, setLongitude] = useState<string>('');
   const [venueSlug, setVenueSlug] = useState<string>('');
   const [cartValue, setCartValue] = useState<string>('');
-  const [prices, setPrices] = useState<CalculationResult | null>(null); 
+  const [prices, setPrices] = useState<CalculationResult | null>(null);
 
   const updateCoordinates = (lat: string, lon: string) => {
     setLatitude(lat);
@@ -88,9 +88,15 @@ function App() {
           longitude={longitude}
           setMessage={setMessage}
           setIsError={setIsError}
-          setPrices={setPrices} 
+          setPrices={setPrices}
         />
-        {message && <Message message={message} setMessage={setMessage} isError={isError} />}
+        {message && (
+          <Message
+            message={message}
+            setMessage={setMessage}
+            isError={isError}
+          />
+        )}
         {prices && <Breakdown prices={prices} />}
       </Container>
     </ThemeProvider>

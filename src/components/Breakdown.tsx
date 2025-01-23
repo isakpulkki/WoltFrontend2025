@@ -1,4 +1,3 @@
-// src/components/Breakdown.tsx
 import { CalculationResult } from '../types/CalculationResult';
 import { Typography, Paper } from '@mui/material';
 
@@ -9,19 +8,24 @@ const Breakdown = ({ prices }: { prices: CalculationResult }) => {
         Price Breakdown
       </Typography>
       <Typography>
-        <span style={{ fontWeight: 'bold' }}>Cart Value</span> {prices.cartValue} €
+        <span style={{ fontWeight: 'bold' }}>Cart Value</span>{' '}
+        {prices.cartValue} €
       </Typography>
       <Typography>
-        <span style={{ fontWeight: 'bold' }}>Small Order Surcharge</span> {prices.smallOrderSurcharge} €
+        <span style={{ fontWeight: 'bold' }}>Small Order Surcharge</span>{' '}
+        {prices.smallOrderSurcharge} €
       </Typography>
       <Typography>
-        <span style={{ fontWeight: 'bold' }}>Delivery Fee</span> {prices.deliveryFee} €
+        <span style={{ fontWeight: 'bold' }}>Delivery Fee</span>{' '}
+        {prices.deliveryFee} €
       </Typography>
       <Typography>
-        <span style={{ fontWeight: 'bold' }}>Delivery Distance</span> {prices.deliveryDistance} meters
+        <span style={{ fontWeight: 'bold' }}>Delivery Distance</span>{' '}
+        {prices.deliveryDistance} meters
       </Typography>
       <Typography variant="h6" sx={{ marginTop: 2 }}>
-        <span style={{ fontWeight: 'bold' }}>Total Price</span> {prices.totalPrice} €
+        <span style={{ fontWeight: 'bold' }}>Total Price</span>{' '}
+        {prices.totalPrice} €
       </Typography>
     </Paper>
   );

@@ -3,7 +3,7 @@ import { VenueData } from '../types/VenueData';
 export const fetchVenueData = async (
   venueSlug: string,
   setMessage: (message: string) => void,
-  setIsError: (isError: boolean) => void 
+  setIsError: (isError: boolean) => void
 ): Promise<VenueData> => {
   try {
     const staticApiUrl = `https://consumer-api.development.dev.woltapi.com/home-assignment-api/v1/venues/${venueSlug}/static`;
@@ -16,14 +16,14 @@ export const fetchVenueData = async (
     if (!staticResponse.ok) {
       const errorMessage = 'Error fetching the venues data.';
       setMessage(errorMessage);
-      setIsError(true); 
+      setIsError(true);
       throw new Error(errorMessage);
     }
 
     if (!dynamicResponse.ok) {
       const errorMessage = 'Error fetching the venues data.';
       setMessage(errorMessage);
-      setIsError(true); 
+      setIsError(true);
       throw new Error(errorMessage);
     }
 
@@ -42,7 +42,7 @@ export const fetchVenueData = async (
     setIsError(false);
     return venueData;
   } catch (error) {
-    setIsError(true); 
+    setIsError(true);
     if (error instanceof Error) {
       console.error('Error fetching venue data: ', error.message);
       setMessage('Error occured, is the venue slug typed correctly?');

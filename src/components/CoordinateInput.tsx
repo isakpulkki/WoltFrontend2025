@@ -2,7 +2,7 @@ import { TextField, Box } from '@mui/material';
 
 interface CoordinateInputProps {
   label: string;
-  range: { min: number; max: number }; 
+  range: { min: number; max: number };
   value: string;
   onChange: (value: string) => void;
   dataTestId: string;
@@ -13,11 +13,11 @@ const CoordinateInput = ({
   range,
   value,
   onChange,
-  dataTestId
+  dataTestId,
 }: CoordinateInputProps) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let newValue = e.target.value;
-    const regex = /^[-]?\d*\.?\d*$/; 
+    const regex = /^[-]?\d*\.?\d*$/;
     if (regex.test(newValue)) {
       const numericValue = parseFloat(newValue);
       if (

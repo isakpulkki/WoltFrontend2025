@@ -17,7 +17,7 @@ const VenueSlugInput = ({
     } else {
       setMessage('');
       setIsError(false);
-      setVenueSlug(value); 
+      setVenueSlug(value);
     }
   };
 

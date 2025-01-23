@@ -31,22 +31,26 @@ const SubmitButton = ({
       return;
     }
 
-      const venueData: VenueData = await fetchVenueData(venueSlug, setMessage, setIsError);
-      const result: CalculationResult = CalculatePrice(
-        venueData,
-        cartValue,
-        parseFloat(latitude),
-        parseFloat(longitude)
-      );
+    const venueData: VenueData = await fetchVenueData(
+      venueSlug,
+      setMessage,
+      setIsError
+    );
+    const result: CalculationResult = CalculatePrice(
+      venueData,
+      cartValue,
+      parseFloat(latitude),
+      parseFloat(longitude)
+    );
 
-      if (result.error) {
-        setMessage(result.error);
-        setIsError(true);
-        setPrices(null);
-      } else {
-        setPrices(result);
-        setIsError(false);
-      }
+    if (result.error) {
+      setMessage(result.error);
+      setIsError(true);
+      setPrices(null);
+    } else {
+      setPrices(result);
+      setIsError(false);
+    }
   };
 
   return (

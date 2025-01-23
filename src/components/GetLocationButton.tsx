@@ -27,7 +27,8 @@ const GetLocationButton = ({
           setLoading(false);
         },
         (error) => {
-          setMessage(`Error fetching location: ${error.message}`);
+          setMessage('Error fetching the location.');
+          console.log(error.message);
           setIsError(true);
           setLoading(false);
         },

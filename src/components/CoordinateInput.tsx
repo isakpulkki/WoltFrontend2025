@@ -2,9 +2,10 @@ import { TextField, Box } from '@mui/material';
 
 interface CoordinateInputProps {
   label: string;
-  range: { min: number; max: number }; // For latitude or longitude range
+  range: { min: number; max: number }; 
   value: string;
   onChange: (value: string) => void;
+  dataTestId: string;
 }
 
 const CoordinateInput = ({
@@ -12,14 +13,13 @@ const CoordinateInput = ({
   range,
   value,
   onChange,
+  dataTestId
 }: CoordinateInputProps) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let newValue = e.target.value;
-    const regex = /^[-]?\d*\.?\d{0,14}$/;
+    const regex = /^[-]?\d*\.?\d*$/; 
     if (regex.test(newValue)) {
       const numericValue = parseFloat(newValue);
-
-      // Ensure the value is within the valid range
       if (
         newValue === '' ||
         newValue === '-' ||
@@ -35,8 +35,8 @@ const CoordinateInput = ({
     if (value !== '') {
       const numericValue = parseFloat(value);
       if (!isNaN(numericValue)) {
-        const formattedValue = numericValue.toFixed(14);
-        onChange(formattedValue);
+        const truncatedValue = numericValue.toFixed(14);
+        onChange(truncatedValue);
       }
     }
   };
@@ -47,6 +47,7 @@ const CoordinateInput = ({
         label={label}
         variant="filled"
         value={value}
+        inputProps={{ 'data-test-id': dataTestId }}
         onChange={handleChange}
         onBlur={handleBlur}
         sx={{ width: '100%' }}
